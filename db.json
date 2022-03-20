@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "price": 52.0,
+      "name": "APOIO DE PÉ EM POLIESTIRENO AP25031 PRETO - MASTICMOL",
+      "img": "https://m.media-amazon.com/images/I/51zbgrs7cfL._AC_SX679_.jpg",
+      "description": "",
+      "inventory": 10,
+      "assessments": [
+        {
+          "name": "",
+          "stars": 5,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "price": 1500.0,
+      "name": "Cadeira Gamer Profissional TGC12 Preta ThunderX3",
+      "img": "https://m.media-amazon.com/images/I/71VqjPlOJAL._AC_SX679_.jpg",
+      "description": "",
+      "inventory": 10,
+      "assessments": [
+        {
+          "name": "",
+          "stars": 4,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "price": 882.0,
+      "name": "HyperX Microfone Gamer QuadCast",
+      "img": "https://m.media-amazon.com/images/I/71nozlRTz3L._AC_SX522_.jpg",
+      "description": "",
+      "inventory": 10,
+      "assessments": [
+        {
+          "name": "",
+          "stars": 5,
+          "description": ""
+        }
+      ]
+    }
+  ]
+}
