@@ -3,8 +3,8 @@
     {
       "id": 1,
       "price": 52.0,
-      "name": "APOIO DE PÉ EM POLIESTIRENO AP25031 PRETO - MASTICMOL",
-      "img": "https://m.media-amazon.com/images/I/51zbgrs7cfL._AC_SX679_.jpg",
+      "name": "Ipad air",
+      "img": "https://i.ibb.co/hYj18Vn/tablet.jpg",
       "description": "",
       "inventory": 10,
       "assessments": [
@@ -17,9 +17,9 @@
     },
     {
       "id": 2,
-      "price": 1500.0,
-      "name": "Cadeira Gamer Profissional TGC12 Preta ThunderX3",
-      "img": "https://m.media-amazon.com/images/I/71VqjPlOJAL._AC_SX679_.jpg",
+      "price": 6500.00,
+      "name": "MacBook Air",
+      "img": "https://i.ibb.co/nMC2ZHS/notebook.jpg",
       "description": "",
       "inventory": 10,
       "assessments": [
@@ -34,7 +34,22 @@
       "id": 3,
       "price": 882.0,
       "name": "HyperX Microfone Gamer QuadCast",
-      "img": "https://m.media-amazon.com/images/I/71nozlRTz3L._AC_SX522_.jpg",
+      "img": "https://i.ibb.co/87VLmC9/smartwatch.jpg",
+      "description": "",
+      "inventory": 10,
+      "assessments": [
+        {
+          "name": "",
+          "stars": 5,
+          "description": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "price": 882.0,
+      "name": "Iphone XR",
+      "img": "https://i.ibb.co/q0vB0W6/smartphone.jpg",
       "description": "",
       "inventory": 10,
       "assessments": [

@@ -6,12 +6,11 @@ vm = new Vue({
   },
   methods: {
     getProducts() {
-      fetch("../api/products.json")
+      fetch("http://localhost:3000/products")
         .then((response) => response.json())
         .then((json) => {
           this.products = json;
         });
-      console.log("tyeste");
     },
   },
   created() {

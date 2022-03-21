@@ -1,3 +1,25 @@
 body {
-  background-color: #444;
+  background: linear-gradient(to right, #1a1a1a 30%, #ffffff 30%);
+font-family: 'Noto Serif', serif;}
+
+.products {
+  max-width: 970px;
+  margin: 0 auto;
+}
+
+
+.product {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  background-color: #ffffff;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+}
+
+.product__image {
+  max-width: 300px;
+}
+
+.product__name {
+  font-size: 3rem;
 }

@@ -5,15 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./vue.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./reset.css" />
+
     <title>Techno</title>
   </head>
   <body>
     <div id="app">
-      <h1>{{message}}</h1>
-      <ul>
-        <li v-for="product in products">{{product.name}}</li>
-      </ul>
+      <section class="products">
+        <div class="product" v-for="product in products":key="product.id">
+            <img :src="product.img"  :alt="product.name" class="product__image" />
+            <div class="product__info">
+                <span class="product__price">
+                  {{product.price}}
+                </span>
+                <h2 class="product__name">
+                    {{product.name}}
+                </h2>
+            </div>
+        </div>
+      </section>
     </div>
     <script src="./app.js"></script>
   </body>
