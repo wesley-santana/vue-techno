@@ -1,16 +1,43 @@
 body {
   background: linear-gradient(to right, #1a1a1a 30%, #ffffff 30%);
-font-family: 'Noto Serif', serif;}
+  font-family: 'Noto Serif', serif;}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  max-width: 970px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 80px;
+}
+
+.cart::after {
+  content: '';
+  display: inline-block;
+  background: url('./assets/carrinho.svg') no-repeat center center;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+}
 
 .products {
   max-width: 970px;
   margin: 0 auto;
 }
 
-
 .product {
   display: flex;
   align-items: center;
+  cursor: pointer;
   margin-bottom: 40px;
   background-color: #ffffff;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
@@ -18,8 +45,129 @@ font-family: 'Noto Serif', serif;}
 
 .product__image {
   max-width: 300px;
+  margin-right: 40px;
 }
 
 .product__name {
   font-size: 3rem;
+}
+
+.product__price {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.modal::before {
+  content: "";
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  padding: 80px;
+}
+
+.modal__container {
+  position: relative;
+  background-color: #ffffff;
+  z-index: 1;
+  display: grid;
+  align-items: end;
+  grid-gap: 50px;
+  padding: 0px 50px 50px 0px;
+  background: linear-gradient(to right, transparent 250px, #ffffff 250px);
+  animation: fadeIn .3s forwards;
+}
+
+.modal__image {
+  grid-column: 1;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal__image img{
+  max-width: 300px;
+  display: block;
+}
+
+.modal__title {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.modal__button {
+  margin-top: 80px;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  padding: 10px 25px;
+  font-family: 'Noto Serif', serif;
+  color: #ffffff;
+}
+
+.modal__button:active {
+  background-color: #808080;
+}
+
+.modal__info {
+  max-width: 600px;
+  grid-column: 2;
+}
+
+.modal__assessments {
+  grid-column: 2;
+  max-width: 600px;
+}
+
+.modal__assessment {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+
+}
+
+.assessments__description {
+  color: rgba(0, 0, 0, 0.7);
+  margin: 20px 0px 5px 0;
+}
+
+.assessments__title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.modal__button-close {
+    position: absolute;
+    right: -10px;
+    font-size: 24px;
+    cursor: pointer;
+    top: -10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: solid 2px #1a1a1a;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3D(50px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3D(0px, 0, 0);
+  }
 }

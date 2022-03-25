@@ -4,14 +4,15 @@
       "id": 1,
       "price": 52.0,
       "name": "Ipad air",
-      "img": "https://i.ibb.co/hYj18Vn/tablet.jpg",
-      "description": "",
+      "thumbnail": "https://i.ibb.co/hYj18Vn/tablet.jpg",
+      "image": "https://i.ibb.co/TRhZSr5/tablet-foto.jpg",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, exercitationem maiores! Nisi fugiat quod explicabo numquam quasi labore, dolorum porro blanditiis sequi quaerat at nemo pariatur? Amet mollitia odio perferendis.",
       "inventory": 10,
       "assessments": [
         {
-          "name": "",
+          "name": "João",
           "stars": 5,
-          "description": ""
+          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, exercitationem maiores! Nisi fugiat quod explicabo numquam quasi labore, dolorum porro blanditiis sequi quaerat at nemo pariatur? Amet mollitia odio perferendis."
         }
       ]
     },
@@ -19,14 +20,15 @@
       "id": 2,
       "price": 6500.00,
       "name": "MacBook Air",
-      "img": "https://i.ibb.co/nMC2ZHS/notebook.jpg",
-      "description": "",
+      "thumbnail": "https://i.ibb.co/nMC2ZHS/notebook.jpg",
+      "image": "https://i.ibb.co/TRhZSr5/tablet-foto.jpg",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, exercitationem maiores! Nisi fugiat quod explicabo numquam quasi labore, dolorum porro blanditiis sequi quaerat at nemo pariatur? Amet mollitia odio perferendis.",
       "inventory": 10,
       "assessments": [
         {
-          "name": "",
+          "name": "Marcos",
           "stars": 4,
-          "description": ""
+          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, exercitationem maiores! Nisi fugiat quod explicabo numquam quasi labore, dolorum porro blanditiis sequi quaerat at nemo pariatur? Amet mollitia odio perferendis."
         }
       ]
     },
@@ -34,14 +36,15 @@
       "id": 3,
       "price": 882.0,
       "name": "HyperX Microfone Gamer QuadCast",
-      "img": "https://i.ibb.co/87VLmC9/smartwatch.jpg",
-      "description": "",
+      "thumbnail": "https://i.ibb.co/87VLmC9/smartwatch.jpg",
+      "image": "https://i.ibb.co/TRhZSr5/tablet-foto.jpg",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, exercitationem maiores! Nisi fugiat quod explicabo numquam quasi labore, dolorum porro blanditiis sequi quaerat at nemo pariatur? Amet mollitia odio perferendis.",
       "inventory": 10,
       "assessments": [
         {
-          "name": "",
+          "name": "Thiago",
           "stars": 5,
-          "description": ""
+          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, exercitationem maiores! Nisi fugiat quod explicabo numquam quasi labore, dolorum porro blanditiis sequi quaerat at nemo pariatur? Amet mollitia odio perferendis."
         }
       ]
     },
@@ -49,14 +52,15 @@
       "id": 4,
       "price": 882.0,
       "name": "Iphone XR",
-      "img": "https://i.ibb.co/q0vB0W6/smartphone.jpg",
-      "description": "",
+      "thumbnail": "https://i.ibb.co/q0vB0W6/smartphone.jpg",
+      "image": "https://i.ibb.co/TRhZSr5/tablet-foto.jpg",
+      "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, exercitationem maiores! Nisi fugiat quod explicabo numquam quasi labore, dolorum porro blanditiis sequi quaerat at nemo pariatur? Amet mollitia odio perferendis.",
       "inventory": 10,
       "assessments": [
         {
-          "name": "",
+          "name": "William",
           "stars": 5,
-          "description": ""
+          "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, exercitationem maiores! Nisi fugiat quod explicabo numquam quasi labore, dolorum porro blanditiis sequi quaerat at nemo pariatur? Amet mollitia odio perferendis."
         }
       ]
     }

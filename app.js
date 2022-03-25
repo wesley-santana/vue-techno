@@ -3,6 +3,9 @@ vm = new Vue({
   data: {
     message: "Bem vindo!",
     products: [],
+    productDetail: false,
+    quantityInItemsInCart: 0,
+    listProductInCart: [],
   },
   methods: {
     getProducts() {
@@ -12,7 +15,37 @@ vm = new Vue({
           this.products = json;
         });
     },
+
+    getProductById(id) {
+      fetch(`http://localhost:3000/products/${id}`)
+        .then((response) => response.json())
+        .then((json) => {
+          this.productDetail = json;
+        });
+    },
+
+    openModal (id) {
+      this.getProductById(id);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+    },
+
+    closeMoldal({target, currentTarget}) {
+      if (target === currentTarget){ this.productDetail = false }
+    },
+
+    addToCart() {
+    }
   },
+
+  filters: {
+    formatCurrency(currency) {
+      return currency.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+    }
+  },
+
   created() {
     this.getProducts();
   },

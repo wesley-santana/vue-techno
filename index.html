@@ -10,22 +10,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./reset.css" />
-
     <title>Techno</title>
   </head>
   <body>
     <div id="app">
+      <header class="header">
+        <img class="logo"  src="#"/>
+        <span class="cart">
+          {{quantityInItemsInCart}} |
+        </span>
+      </header>
       <section class="products">
-        <div class="product" v-for="product in products":key="product.id">
-            <img :src="product.img"  :alt="product.name" class="product__image" />
+        <div class="product" v-for="product in products":key="product.id" @click="openModal(product.id)">
+            <img :src="product.thumbnail"  :alt="product.name" class="product__image" />
             <div class="product__info">
                 <span class="product__price">
-                  {{product.price}}
+                  {{product.price | formatCurrency}}
                 </span>
                 <h2 class="product__name">
-                    {{product.name}}
+                  {{product.name}}
                 </h2>
             </div>
+        </div>
+      </section>
+      <section class="modal" v-if="productDetail" @click="closeMoldal">
+        <div class="modal__container">
+          <div class="modal__image">
+            <img :src="productDetail.image"  :alt="productDetail.name"/>
+          </div>
+          <div class="modal__info">
+            <button @click="productDetail = false" class="modal__button-close">x</button>
+            <span class="modal__price">{{productDetail.price | formatCurrency}}</span>
+            <h2 class="modal__title">{{productDetail.name}}</h2>
+            <p>{{productDetail.description}}</p>
+            <button class="modal__button">Adicionar Item</button>
+          </div>
+          <div class="modal__assessments">
+            <h2 class="assessments__title">Avaliações</h2>
+            <ul class="modal__assessment">
+              <li v-for="assessment in productDetail.assessments">
+                <p class="assessment__description">{{assessment.description}}</p>
+                <p>{{assessment.name}} | {{assessment.stars}}</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>
