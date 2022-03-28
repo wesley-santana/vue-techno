@@ -1,11 +1,21 @@
 vm = new Vue({
   el: "#app",
   data: {
-    message: "Bem vindo!",
     products: [],
     productDetail: false,
-    quantityInItemsInCart: 0,
+    amount: 0,
     listProductInCart: [],
+  },
+
+  computed: {
+    total() {
+      if(this.listProductInCart.length > 0) {
+        return this.listProductInCart.reduce(function(total, currentItem) {
+          return total + currentItem.price
+        }, 0);
+      }
+      return 0;
+    }
   },
   methods: {
     getProducts() {
@@ -37,6 +47,19 @@ vm = new Vue({
     },
 
     addToCart() {
+      this.productDetail.inventory--;
+      const { id, name, price } = this.productDetail;
+      this.listProductInCart.push({id, name , price});
+    },
+
+    removeFromCart(index) {
+      this.listProductInCart.splice(index, 1)
+    },
+
+    checkCart() {
+      if(window.localStorage.userCart){
+        this.listProductInCart = JSON.parse(window.localStorage.userCart);
+      }
     }
   },
 
@@ -46,7 +69,14 @@ vm = new Vue({
     }
   },
 
+  watch: {
+    listProductInCart() {
+      window.localStorage.userCart = JSON.stringify(this.listProductInCart);
+    }
+  },
+
   created() {
     this.getProducts();
+    this.checkCart();
   },
 });

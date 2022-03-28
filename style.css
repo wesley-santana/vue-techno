@@ -115,6 +115,10 @@ body {
   color: #ffffff;
 }
 
+.modal__button--disabled {
+   opacity: 0.4;
+}
+
 .modal__button:active {
   background-color: #808080;
 }

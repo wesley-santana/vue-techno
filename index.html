@@ -17,8 +17,14 @@
       <header class="header">
         <img class="logo"  src="#"/>
         <span class="cart">
-          {{quantityInItemsInCart}} |
+          {{total | formatCurrency}} | {{listProductInCart.length}}
         </span>
+        <ul>
+          <li v-for="(item, index) in listProductInCart">
+            <p>{{item.name}}</p>
+            <button @click="removeFromCart(index)">remover</button>
+          </li>
+        </ul>
       </header>
       <section class="products">
         <div class="product" v-for="product in products":key="product.id" @click="openModal(product.id)">
@@ -43,7 +49,9 @@
             <span class="modal__price">{{productDetail.price | formatCurrency}}</span>
             <h2 class="modal__title">{{productDetail.name}}</h2>
             <p>{{productDetail.description}}</p>
-            <button class="modal__button">Adicionar Item</button>
+            <button v-if="productDetail.inventory" @click="addToCart" class="modal__button">Adicionar item</button>
+            <button v-else="productDetail.inventory" disabled class="modal__button modal__button--disabled">Produto esgotado</button>
+
           </div>
           <div class="modal__assessments">
             <h2 class="assessments__title">Avaliações</h2>
