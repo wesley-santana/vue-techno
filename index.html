@@ -16,15 +16,9 @@
     <div id="app">
       <header class="header">
         <img class="logo"  src="#"/>
-        <span class="cart">
+        <span class="cart" @click="cartActive = true">
           {{total | formatCurrency}} | {{listProductInCart.length}}
         </span>
-        <ul>
-          <li v-for="(item, index) in listProductInCart">
-            <p>{{item.name}}</p>
-            <button @click="removeFromCart(index)">remover</button>
-          </li>
-        </ul>
       </header>
       <section class="products">
         <div class="product" v-for="product in products":key="product.id" @click="openModal(product.id)">
@@ -64,6 +58,29 @@
           </div>
         </div>
       </section>
+      <section class="modal-cart" :class="{show: cartActive}" @click="skipMoldaCart">
+        <div class="modal-cart__container">
+            <button class="modal__button-close" @click="cartActive = false">x</button>
+            <h2 class="modal-cart__title">Carrinho</h2>
+            <div>
+                <ul>
+                  <li class="modal-cart__item" v-for="(item, index) in listProductInCart">
+                    <p>{{item.name}}</p>
+                    <p>{{item.price | formatCurrency }}</p>
+                    <button class="button-remove" @click="removeFromCart(index)">x</button>
+                  </li>
+                </ul>
+                <p class="modal-cart__total">{{total | formatCurrency}}</p>
+                <button class="modal-cart__button">Finalizar compra</button>
+            </div>
+        </div>
+        <p v-else >Carrinho vazio</p>
+      </section>
+      <div class="alert" :class="{active: alertActive}">
+         <p class="alert__text">
+           {{alertMessage}}
+         </p>
+      </div>
     </div>
     <script src="./app.js"></script>
   </body>

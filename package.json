@@ -1,0 +1,25 @@
+{
+  "name": "techno",
+  "version": "1.0.0",
+  "description": "loja virtual",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "http-server -p 4000 ./",
+    "mock": "json-server --watch db.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wesley-santana/vue-techno.git"
+  },
+  "author": "Wesley de Santana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wesley-santana/vue-techno/issues"
+  },
+  "homepage": "https://github.com/wesley-santana/vue-techno#readme",
+  "devDependencies": {
+    "http-server": "^14.1.0",
+    "json-server": "^0.17.0"
+  }
+}

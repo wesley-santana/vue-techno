@@ -1,7 +1,12 @@
 ### Getting started
 
-npm install -g json-server
+npm install
+
+### Start Aplication
+
+npm run serve
 
 ### Start JSON Server
 
-json-server --watch db.json
+npm run mock
+

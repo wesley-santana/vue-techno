@@ -5,6 +5,9 @@ vm = new Vue({
     productDetail: false,
     amount: 0,
     listProductInCart: [],
+    alertMessage: '',
+    alertActive: false,
+    cartActive: false,
   },
 
   computed: {
@@ -34,6 +37,13 @@ vm = new Vue({
         });
     },
 
+    showAlert(message) {
+      this.alertMessage = message;
+      this.alertActive = true;
+      setTimeout(() => {
+        this.alertActive = false;
+      }, 1500)
+    },
     openModal (id) {
       this.getProductById(id);
       window.scrollTo({
@@ -50,6 +60,7 @@ vm = new Vue({
       this.productDetail.inventory--;
       const { id, name, price } = this.productDetail;
       this.listProductInCart.push({id, name , price});
+      this.showAlert('Produdo adiciona ao carrinho')
     },
 
     removeFromCart(index) {
@@ -60,7 +71,19 @@ vm = new Vue({
       if(window.localStorage.userCart){
         this.listProductInCart = JSON.parse(window.localStorage.userCart);
       }
+    },
+
+    route(){
+      const hash = document.location.hash;
+      if(hash) {
+        this.getProductById(hash.replace('#', ''));
+      }
+    },
+
+    skipMoldaCart() {
+      if (target === currentTarget){ this.cartActive = false }
     }
+
   },
 
   filters: {
@@ -72,11 +95,18 @@ vm = new Vue({
   watch: {
     listProductInCart() {
       window.localStorage.userCart = JSON.stringify(this.listProductInCart);
+    },
+
+    productDetail() {
+        const productIdURL = this.productDetail.id || '';
+        document.title = this.productDetail.name || 'Techno';
+        history.pushState(null, null, `#${productIdURL}`)
     }
   },
 
   created() {
     this.getProducts();
     this.checkCart();
+    this.route();
   },
 });

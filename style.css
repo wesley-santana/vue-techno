@@ -164,6 +164,117 @@ body {
     font-weight: bold;
 }
 
+.alert {
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+
+.active {
+  display: block;
+  animation: fadeInDown .3s forwards;
+}
+
+.show {
+  display: block !important;
+}
+
+.alert__text {
+  background-color: #ffffff;
+  border: solid 2px #1a1a1a;
+  display: inline-block;
+  padding: 20px 40px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.modal-cart::before {
+  content: "";
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+}
+
+.modal-cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  display: none;
+}
+
+.modal-cart__container {
+    position: relative;
+    margin: 80px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    max-width: 800px;
+    animation: fadeInDown .3s forwards;
+}
+
+.modal-cart__item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 50px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-cart__title {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  font-size: 40px;
+  border-bottom: solid 2px #000000;
+}
+
+.button-remove {
+  border: none;
+  text-align: center;
+  background-color: transparent;
+  color: #000000;
+  border-radius: 50%;
+  font-size: 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-cart__button {
+  margin-top: 80px;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  padding: 10px 25px;
+  font-family: 'Noto Serif', serif;
+  color: #ffffff;
+  display: block;
+  margin-left: auto;
+
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3D(0, -30px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3D(0, 0px 0);
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
