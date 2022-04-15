@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="./vue.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./reset.css" />
     <title>Techno</title>
@@ -15,71 +18,106 @@
   <body>
     <div id="app">
       <header class="header">
-        <img class="logo"  src="#"/>
+        <img class="logo" src="#" />
         <span class="cart" @click="cartActive = true">
           {{total | formatCurrency}} | {{listProductInCart.length}}
         </span>
       </header>
       <section class="products">
-        <div class="product" v-for="product in products":key="product.id" @click="openModal(product.id)">
-            <img :src="product.thumbnail"  :alt="product.name" class="product__image" />
-            <div class="product__info">
-                <span class="product__price">
-                  {{product.price | formatCurrency}}
-                </span>
-                <h2 class="product__name">
-                  {{product.name}}
-                </h2>
-            </div>
+        <div
+          class="product"
+          v-for="product in products"
+          :key="product.id"
+          @click="openModal(product.id)"
+        >
+          <img
+            :src="product.thumbnail"
+            :alt="product.name"
+            class="product__image"
+          />
+          <div class="product__info">
+            <span class="product__price">
+              {{product.price | formatCurrency}}
+            </span>
+            <h2 class="product__name">{{product.name}}</h2>
+          </div>
         </div>
       </section>
       <section class="modal" v-if="productDetail" @click="closeMoldal">
         <div class="modal__container">
           <div class="modal__image">
-            <img :src="productDetail.image"  :alt="productDetail.name"/>
+            <img :src="productDetail.image" :alt="productDetail.name" />
           </div>
           <div class="modal__info">
-            <button @click="productDetail = false" class="modal__button-close">x</button>
-            <span class="modal__price">{{productDetail.price | formatCurrency}}</span>
+            <button @click="productDetail = false" class="modal__button-close">
+              x
+            </button>
+            <span class="modal__price"
+              >{{productDetail.price | formatCurrency}}</span
+            >
             <h2 class="modal__title">{{productDetail.name}}</h2>
             <p>{{productDetail.description}}</p>
-            <button v-if="productDetail.inventory" @click="addToCart" class="modal__button">Adicionar item</button>
-            <button v-else="productDetail.inventory" disabled class="modal__button modal__button--disabled">Produto esgotado</button>
-
+            <div>
+              <button
+                v-if="productDetail.inventory"
+                @click="addToCart"
+                class="modal__button"
+              >
+                Adicionar item
+              </button>
+              <button
+                v-else
+                disabled
+                class="modal__button modal__button--disabled"
+              >
+                Produto esgotado
+              </button>
+            </div>
           </div>
           <div class="modal__assessments">
             <h2 class="assessments__title">Avaliações</h2>
             <ul class="modal__assessment">
               <li v-for="assessment in productDetail.assessments">
-                <p class="assessment__description">{{assessment.description}}</p>
+                <p class="assessment__description">
+                  {{assessment.description}}
+                </p>
                 <p>{{assessment.name}} | {{assessment.stars}}</p>
               </li>
             </ul>
           </div>
         </div>
       </section>
-      <section class="modal-cart" :class="{show: cartActive}" @click="skipMoldaCart">
+      <section
+        class="modal-cart"
+        :class="{show: cartActive}"
+        @click="skipMoldaCart"
+      >
         <div class="modal-cart__container">
-            <button class="modal__button-close" @click="cartActive = false">x</button>
-            <h2 class="modal-cart__title">Carrinho</h2>
-            <div>
-                <ul>
-                  <li class="modal-cart__item" v-for="(item, index) in listProductInCart">
-                    <p>{{item.name}}</p>
-                    <p>{{item.price | formatCurrency }}</p>
-                    <button class="button-remove" @click="removeFromCart(index)">x</button>
-                  </li>
-                </ul>
-                <p class="modal-cart__total">{{total | formatCurrency}}</p>
-                <button class="modal-cart__button">Finalizar compra</button>
-            </div>
+          <button class="modal__button-close" @click="cartActive = false">
+            x
+          </button>
+          <h2 class="modal-cart__title">Carrinho</h2>
+          <div v-if="listProductInCart.length > 0">
+            <ul>
+              <li
+                class="modal-cart__item"
+                v-for="(item, index) in listProductInCart"
+              >
+                <p>{{item.name}}</p>
+                <p>{{item.price | formatCurrency }}</p>
+                <button class="button-remove" @click="removeFromCart(index)">
+                  x
+                </button>
+              </li>
+            </ul>
+            <p class="modal-cart__total">{{total | formatCurrency}}</p>
+            <button class="modal-cart__button">Finalizar compra</button>
+          </div>
+          <p class="cart--void" v-else>Carrinho vazio.</p>
         </div>
-        <p v-else >Carrinho vazio</p>
       </section>
       <div class="alert" :class="{active: alertActive}">
-         <p class="alert__text">
-           {{alertMessage}}
-         </p>
+        <p class="alert__text">{{alertMessage}}</p>
       </div>
     </div>
     <script src="./app.js"></script>

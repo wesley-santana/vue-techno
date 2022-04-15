@@ -5,20 +5,20 @@ vm = new Vue({
     productDetail: false,
     amount: 0,
     listProductInCart: [],
-    alertMessage: '',
+    alertMessage: "",
     alertActive: false,
     cartActive: false,
   },
 
   computed: {
     total() {
-      if(this.listProductInCart.length > 0) {
-        return this.listProductInCart.reduce(function(total, currentItem) {
-          return total + currentItem.price
+      if (this.listProductInCart.length > 0) {
+        return this.listProductInCart.reduce(function (total, currentItem) {
+          return total + currentItem.price;
         }, 0);
       }
       return 0;
-    }
+    },
   },
   methods: {
     getProducts() {
@@ -36,60 +36,74 @@ vm = new Vue({
           this.productDetail = json;
         });
     },
-
+    compareStock() {
+      const items = this.listProductInCart.filter((item) => {
+        if (item.id === this.productDetail.id) {
+          return true;
+        }
+      });
+      this.productDetail.inventory =
+        this.productDetail.inventory - items.length;
+    },
     showAlert(message) {
       this.alertMessage = message;
       this.alertActive = true;
       setTimeout(() => {
         this.alertActive = false;
-      }, 1500)
+      }, 1500);
     },
-    openModal (id) {
+    openModal(id) {
       this.getProductById(id);
       window.scrollTo({
         top: 0,
-        behavior: "smooth"
-      })
+        behavior: "smooth",
+      });
     },
 
-    closeMoldal({target, currentTarget}) {
-      if (target === currentTarget){ this.productDetail = false }
+    closeMoldal({ target, currentTarget }) {
+      if (target === currentTarget) {
+        this.productDetail = false;
+      }
     },
 
     addToCart() {
       this.productDetail.inventory--;
       const { id, name, price } = this.productDetail;
-      this.listProductInCart.push({id, name , price});
-      this.showAlert('Produdo adiciona ao carrinho')
+      this.listProductInCart.push({ id, name, price });
+      this.showAlert("Produdo adiciona ao carrinho");
     },
 
     removeFromCart(index) {
-      this.listProductInCart.splice(index, 1)
+      this.listProductInCart.splice(index, 1);
     },
 
     checkCart() {
-      if(window.localStorage.userCart){
+      if (window.localStorage.userCart) {
         this.listProductInCart = JSON.parse(window.localStorage.userCart);
       }
     },
 
-    route(){
+    route() {
       const hash = document.location.hash;
-      if(hash) {
-        this.getProductById(hash.replace('#', ''));
+      if (hash) {
+        this.getProductById(hash.replace("#", ""));
       }
     },
 
-    skipMoldaCart() {
-      if (target === currentTarget){ this.cartActive = false }
-    }
-
+    skipMoldaCart({ target, currentTarget }) {
+      if (target === currentTarget) {
+        this.cartActive = false;
+      }
+    },
   },
 
   filters: {
     formatCurrency(currency) {
-      return currency.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-    }
+      return currency.toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      });
+    },
   },
 
   watch: {
@@ -98,10 +112,13 @@ vm = new Vue({
     },
 
     productDetail() {
-        const productIdURL = this.productDetail.id || '';
-        document.title = this.productDetail.name || 'Techno';
-        history.pushState(null, null, `#${productIdURL}`)
-    }
+      const productIdURL = this.productDetail.id || "";
+      document.title = this.productDetail.name || "Techno";
+      history.pushState(null, null, `#${productIdURL}`);
+      if (this.productDetail) {
+        this.compareStock();
+      }
+    },
   },
 
   created() {

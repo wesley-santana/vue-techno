@@ -1,6 +1,7 @@
 body {
   background: linear-gradient(to right, #1a1a1a 30%, #ffffff 30%);
-  font-family: 'Noto Serif', serif;}
+  font-family: "Noto Serif", serif;
+}
 
 .header {
   display: flex;
@@ -15,9 +16,9 @@ body {
 }
 
 .cart::after {
-  content: '';
+  content: "";
   display: inline-block;
-  background: url('./assets/carrinho.svg') no-repeat center center;
+  background: url("./assets/carrinho.svg") no-repeat center center;
   width: 24px;
   height: 24px;
   margin-left: 8px;
@@ -86,7 +87,7 @@ body {
   grid-gap: 50px;
   padding: 0px 50px 50px 0px;
   background: linear-gradient(to right, transparent 250px, #ffffff 250px);
-  animation: fadeIn .3s forwards;
+  animation: fadeIn 0.3s forwards;
 }
 
 .modal__image {
@@ -94,7 +95,7 @@ body {
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.modal__image img{
+.modal__image img {
   max-width: 300px;
   display: block;
 }
@@ -111,12 +112,12 @@ body {
   border: none;
   font-size: 1rem;
   padding: 10px 25px;
-  font-family: 'Noto Serif', serif;
+  font-family: "Noto Serif", serif;
   color: #ffffff;
 }
 
 .modal__button--disabled {
-   opacity: 0.4;
+  opacity: 0.4;
 }
 
 .modal__button:active {
@@ -136,7 +137,6 @@ body {
 .modal__assessment {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 20px;
-
 }
 
 .assessments__description {
@@ -151,17 +151,17 @@ body {
 }
 
 .modal__button-close {
-    position: absolute;
-    right: -10px;
-    font-size: 24px;
-    cursor: pointer;
-    top: -10px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    border: solid 2px #1a1a1a;
-    font-weight: bold;
+  position: absolute;
+  right: -10px;
+  font-size: 24px;
+  cursor: pointer;
+  top: -10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: solid 2px #1a1a1a;
+  font-weight: bold;
 }
 
 .alert {
@@ -176,7 +176,7 @@ body {
 
 .active {
   display: block;
-  animation: fadeInDown .3s forwards;
+  animation: fadeInDown 0.3s forwards;
 }
 
 .show {
@@ -189,7 +189,6 @@ body {
   display: inline-block;
   padding: 20px 40px;
   box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 4px 10px rgba(0, 0, 0, 0.2);
-
 }
 
 .modal-cart::before {
@@ -214,24 +213,25 @@ body {
 }
 
 .modal-cart__container {
-    position: relative;
-    margin: 80px auto;
-    background-color: #ffffff;
-    padding: 40px;
-    max-width: 800px;
-    animation: fadeInDown .3s forwards;
+  position: relative;
+  margin: 80px auto;
+  background-color: #ffffff;
+  padding: 40px;
+  max-width: 800px;
+  animation: fadeInDown 0.3s forwards;
 }
 
 .modal-cart__item {
   display: grid;
   grid-template-columns: 1fr 1fr 50px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .modal-cart__title {
   margin-bottom: 10px;
   padding-bottom: 20px;
-  font-family: 'Noto Serif', serif;
+  font-family: "Noto Serif", serif;
   font-weight: bold;
   font-size: 40px;
   border-bottom: solid 2px #000000;
@@ -256,11 +256,85 @@ body {
   border: none;
   font-size: 1rem;
   padding: 10px 25px;
-  font-family: 'Noto Serif', serif;
+  font-family: "Noto Serif", serif;
   color: #ffffff;
   display: block;
   margin-left: auto;
+}
 
+.modal-cart__total {
+  text-align: right;
+  font-size: 24px;
+  font-family: "Noto Serif", serif;
+  font-weight: bold;
+  padding: 10px 50px 10px 0px;
+  border-bottom: 2px solid #000000;
+}
+
+.cart--void {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Noto Serif", serif;
+  padding: 20px 0px 20px 0px;
+}
+
+@media screen and (max-width: 900px) {
+  .products {
+    margin-top: 40px;
+  }
+
+  .product {
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 300px;
+    margin: 30px auto;
+  }
+
+  .product__info {
+    padding: 20px;
+  }
+
+  .product__image {
+    max-width: 100%;
+  }
+  .product__name {
+    font-size: 1.5rem;
+  }
+  .modal {
+    padding: 10px;
+  }
+
+  .modal__container {
+    grid-gap: 20px;
+    padding: 10px 0;
+    background-color: #ffffff;
+  }
+  .modal__image {
+    grid-row: 2;
+  }
+
+  .modal__image img {
+    width: 100%;
+    max-width: initial;
+  }
+
+  .modal__info {
+    grid-column: 1;
+    padding: 10px;
+  }
+
+  .modal__assessments {
+    grid-column: 1;
+    padding: 10px;
+  }
+
+  .modal__button {
+    margin-top: 20px;
+  }
+
+  .modal__button-close {
+    right: 12px;
+    top: 4px;
 }
 
 @keyframes fadeInDown {
