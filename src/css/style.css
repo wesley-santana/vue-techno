@@ -12,13 +12,15 @@ body {
 }
 
 .logo {
-  width: 80px;
+  width: 100px;
+  border-radius: 50%;
+  border: solid 2px #7dccab;
 }
 
 .cart::after {
   content: "";
   display: inline-block;
-  background: url("./assets/carrinho.svg") no-repeat center center;
+  background: url("../assets/carrinho.svg") no-repeat center center;
   width: 24px;
   height: 24px;
   margin-left: 8px;
@@ -335,6 +337,11 @@ body {
   .modal__button-close {
     right: 12px;
     top: 4px;
+  }
+
+  .header {
+    padding: 40px;
+  }
 }
 
 @keyframes fadeInDown {
